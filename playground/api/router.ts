@@ -36,9 +36,10 @@ router.post('/files/(.*)', async (ctx) => {
 router.post('/run/:trans', async (ctx) => {
   const name = ctx.params.trans
   const input = ctx.request.body
+  const filename = ctx.request.headers.filename as string
   const script = path.resolve(__dirname, 'transfrom.ts')
 
-  const result = spawnSync(`ts-node${cmdSuffix}`, ['-T', script, name], {
+  const result = spawnSync(`ts-node${cmdSuffix}`, ['-T', script, name, filename], {
     input,
     encoding: 'utf-8',
   })

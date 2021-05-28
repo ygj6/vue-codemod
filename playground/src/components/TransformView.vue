@@ -74,6 +74,7 @@ export default defineComponent({
           body: input.value,
           headers: {
             'Content-Type': 'text/plain',
+            'filename': inputFixtureName.value
           },
         })
         output.value = await r.text()
