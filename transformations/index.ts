@@ -29,6 +29,9 @@ const transformationMap: {
   // generic utility tranformations
   'add-import': require('./add-import'),
   'remove-extraneous-import': require('./remove-extraneous-import'),
+
+  //
+  'remove-listeners': require('./remove-listeners')
 }
 
 export default transformationMap
